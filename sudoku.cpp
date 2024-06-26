@@ -92,8 +92,9 @@ void search(int k)
         int grid[SIZE][SIZE] = {{0}};
         mapsolutiontogrid(grid);
         cout<<"Solution Exists"<<endl;
-        cout<<"hi"<<endl;
         printgrid(grid);
+		std::cin.get(); //Pause console
+
         is_solved = true;
 
         return;
@@ -302,17 +303,18 @@ void SolveSudoku(int puzzle[][SIZE])
 }
 int main()
 {
-    int Puzzle[9][9] = {{0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 8, 5},
-                        {0, 0, 1, 0, 2, 0, 0, 0, 0},
-                        {0, 0, 0, 5, 0, 7, 0, 0, 0},
-                        {0, 0, 4, 0, 0, 0, 1, 0, 0},
-                        {0, 9, 0, 0, 0, 0, 0, 0, 0},
-                        {5, 0, 0, 0, 0, 0, 0, 7, 3},
-                        {0, 0, 2, 0, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 4, 0, 0, 0, 9}};
+    int Puzzle[9][9];
+    for(int i=0;i<9;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            cin>>Puzzle[i][j];
+        }
+    }
 
     int EmptyPuzzle[SIZE][SIZE] = {{0}};
     SolveSudoku(Puzzle);
+	std::cin.get();
+
     return 0;
 }
